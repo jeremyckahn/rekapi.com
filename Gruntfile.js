@@ -5,11 +5,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-exec');
 
-  var banner = [
-        '/*! <%= pkg.name %> - v<%= pkg.version %> - ',
-        '<%= grunt.template.today("yyyy-mm-dd") %> - <%= pkg.homepage %> */\n'
-      ].join('');
-
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -47,5 +42,4 @@ module.exports = function(grunt) {
     'exec:symlink',
     'yuidoc'
   ]);
-
 };
