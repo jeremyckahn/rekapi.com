@@ -7,8 +7,8 @@
         "logo": "../../demo/img/rekapi-logo-200.png"
     },
     "files": {
-        "bower_components/rekapi/src/rekapi.actor.js": {
-            "name": "bower_components/rekapi/src/rekapi.actor.js",
+        "src/rekapi.actor.js": {
+            "name": "src/rekapi.actor.js",
             "modules": {},
             "classes": {
                 "Rekapi.Actor": 1
@@ -16,8 +16,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "bower_components/rekapi/src/rekapi.core.js": {
-            "name": "bower_components/rekapi/src/rekapi.core.js",
+        "src/rekapi.core.js": {
+            "name": "src/rekapi.core.js",
             "modules": {},
             "classes": {
                 "Rekapi": 1
@@ -25,8 +25,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "bower_components/rekapi/src/rekapi.keyframe-property.js": {
-            "name": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+        "src/rekapi.keyframe-property.js": {
+            "name": "src/rekapi.keyframe-property.js",
             "modules": {},
             "classes": {
                 "Rekapi.KeyframeProperty": 1
@@ -34,8 +34,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js": {
-            "name": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+        "renderers/canvas/rekapi.renderer.canvas.js": {
+            "name": "renderers/canvas/rekapi.renderer.canvas.js",
             "modules": {},
             "classes": {
                 "Rekapi.CanvasRenderer": 1
@@ -43,8 +43,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js": {
-            "name": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+        "renderers/dom/rekapi.renderer.dom.js": {
+            "name": "renderers/dom/rekapi.renderer.dom.js",
             "modules": {},
             "classes": {
                 "Rekapi.DOMRenderer": 1
@@ -63,7 +63,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 212,
             "description": "An actor represents an individual component of an animation.  An animation\nmay have one or many actors.",
             "params": [
@@ -83,7 +83,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 243,
             "description": "If this is a rendered animation, the appropriate renderer is accessible as\n`this.renderer`.  If provided, a reference to `opt_context` is accessible\nas `this.context`.",
             "params": [
@@ -104,7 +104,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 11,
             "description": "Represents an individual component of an actor's keyframe state.  In most\ncases you won't need to deal with this object directly, as the\n`{{#crossLink \"Rekapi.Actor\"}}{{/crossLink}}` APIs abstract a lot of what\nthis Object does away for you.",
             "params": [
@@ -139,7 +139,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 107,
             "description": "You can use Rekapi to render animations to an HTML5 `<canvas>`.  To do so,\njust provide a\n[`CanvasRenderingContext2D`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)\ninstance to the `{{#crossLink \"Rekapi\"}}{{/crossLink}}` constructor to\nautomatically set up the renderer:\n\n    var context = document.createElement('canvas').getContext('2d');\n    var rekapi = new Rekapi(context);\n    rekapi.renderer instanceof Rekapi.CanvasRenderer; // true\n\n`Rekapi.CanvasRenderer` adds some canvas-specific events you can bind to\nwith `{{#crossLink \"Rekapi/on:method\"}}{{/crossLink}}` (and unbind from\nwith `{{#crossLink \"Rekapi/off:method\"}}{{/crossLink}}`:\n\n - __beforeRender__: Fires just before an actor is rendered to the canvas.\n - __afterRender__: Fires just after an actor is rendered to the canvas.\n\n__Note__: `Rekapi.CanvasRenderer` is added to the `{{#crossLink\n\"Rekapi\"}}{{/crossLink}}` instance automatically as `this.renderer`, there\nis no reason to call the constructor yourself in most cases.\n\n## Multiple renderers\n\nRekapi supports multiple renderers per instance.  Do do this, you must not\nprovide a\n[`CanvasRenderingContext2D`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)\nto the `{{#crossLink \"Rekapi\"}}{{/crossLink}}` constructor, you must\ninstead initialize the renderer yourself.  The\n[`CanvasRenderingContext2D`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)\nthat would have been provided to the `{{#crossLink\n\"Rekapi\"}}{{/crossLink}}` constructor instead is provided as the second\nparameter to `Rekapi.CanvasRenderer`:\n\n\n    var canvasContext = document.querySelector('canvas').getContext('2d');\n\n    // No context gets passed to the Rekapi constructor\n    var rekapi = new Rekapi();\n\n    // Initialize Rekapi.CanvasRenderer manually and give it a\n    // CanvasRenderingContext2D.  You can name it anything you want on the\n    // Rekapi instance.\n    rekapi.canvasRenderer =\n        new Rekapi.CanvasRenderer(rekapi, canvasContext);",
             "params": [
@@ -164,7 +164,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 297,
             "description": "`Rekapi.DOMRenderer` allows you to animate DOM elements.  This is achieved\neither by browser-accelerated [CSS `@keyframe`\nanimations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes),\nor by traditional inline style updates on every frame (like how\n[`jQuery.fn.animate`](http://api.jquery.com/animate/) works).  Animations\nare defined with the same API in either case, but you can gracefully fall\nback to the inline style approach if CSS `@keyframe` animations are not\nsupported by the browser or not preferred.  To render animations with the\nDOM, just supply any DOM element to the `{{#crossLink\n\"Rekapi\"}}{{/crossLink}}` constructor.  You may use `document.body`, since\nit is generally always available:\n\n    var rekapi = new Rekapi(document.body);\n    rekapi.renderer instanceof Rekapi.DOMRenderer; // true\n\nThere are separate APIs for playing inline style animations and CSS\n`@keyframe` animations.  Advantages of playing an animation with CSS\n`@keyframes`:\n\n  - Smoother animations in newer browsers.\n  - The JavaScript thread is freed from performing animation updates,\n  making it available for other logic.\n\nDisadvantages:\n\n  - Not all browsers support CSS `@keyframe` animations.\n  - Limited playback control: You can only play and stop an animation, you\n  cannot jump to or start from a specific point in the timeline.\n  - Generating the CSS for `@keyframe` animations can take a noticeable\n  amount of time.  This blocks all other logic, including rendering, so\n  you may have to be clever with how to spend the cycles to do it.\n  - No `{{#crossLink \"Rekapi/on:method\"}}events{{/crossLink}}` can be\n  bound to CSS `@keyframe` animations.\n\nSo, the results are a little more predictable and flexible with inline\nstyle animations, but CSS `@keyframe` may give you better performance.\nChoose whichever approach makes the most sense for your needs.\n\n`Rekapi.DOMRenderer` can gracefully fall back to an inline style animation\nif CSS `@keyframe` animations are not supported by the browser:\n\n     var rekapi = new Rekapi(document.body);\n\n     // Each actor needs a reference to the DOM element it represents\n     var actor = rekapi.addActor({\n       context: document.getElementById('actor-1')\n     });\n\n     actor\n       .keyframe(0,    { left: '0px'   })\n       .keyframe(1000, { left: '250px' }, 'easeOutQuad');\n\n     // Feature detect for CSS @keyframe support\n     if (rekapi.renderer.canAnimateWithCSS()) {\n       // Animate with CSS @keyframes\n       rekapi.renderer.play();\n     } else {\n       // Animate with inline styles instead\n       rekapi.play();\n     }\n\n## `@keyframe` animations work differently than inline style animations\n\nInline style animations are compatible with all of the playback and\ntimeline control methods defined by `{{#crossLink\n\"Rekapi\"}}{{/crossLink}}`, such as `{{#crossLink\n\"Rekapi/play:method\"}}{{/crossLink}}`, `{{#crossLink\n\"Rekapi/playFrom:method\"}}{{/crossLink}}` and `{{#crossLink\n\"Rekapi/update:method\"}}{{/crossLink}}`.  CSS `@keyframe` playback cannot\nbe controlled in all browsers, so `Rekapi.DOMRenderer` defines analogous,\nrenderer-specific CSS playback methods that you should use:\n\n  - {{#crossLink \"Rekapi.DOMRenderer/play:method\"}}{{/crossLink}}\n  - {{#crossLink \"Rekapi.DOMRenderer/isPlaying:method\"}}{{/crossLink}}\n  - {{#crossLink \"Rekapi.DOMRenderer/stop:method\"}}{{/crossLink}}\n\n__Note__: `Rekapi.DOMRenderer` is added to the `{{#crossLink\n\"Rekapi\"}}{{/crossLink}}` instance automatically as `this.renderer`,\nthere is no reason to call the constructor yourself in most cases.\n\n__[Example](/renderers/dom/sample/play-many-actors.html)__",
             "params": [
@@ -179,7 +179,7 @@
     },
     "classitems": [
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 271,
             "description": "Create a keyframe for the actor.  The animation timeline begins at `0`.\nThe timeline's length will automatically \"grow\" to accommodate new\nkeyframes as they are added.\n\n`state` should contain all of the properties that define this\nkeyframe's state.  These properties can be any value that can be tweened\nby [Shifty](http://jeremyckahn.github.io/shifty/) (numbers,\nRGB/hexadecimal color strings, and CSS property strings).  `state` can\nalso be a function, but this works differently (see \"Function keyframes\"\nbelow).\n\n__Note:__ Internally, this creates `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s and places them on a \"track.\"\nThese `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s are\nmanaged for you by the `{{#crossLink \"Rekapi.Actor\"}}{{/crossLink}}` APIs.\n\n## Keyframe inheritance\n\nKeyframes always inherit missing properties from the previous keyframe.\nFor example:\n\n    actor.keyframe(0, {\n      'x': 100\n    }).keyframe(1000, {\n      // Implicitly specifies the `x: 100` from above\n      'y': 50\n    });\n\nKeyframe `1000` will have a `y` of `50`, and an `x` of `100`, because `x`\nwas inherited from keyframe `0`.\n\n## Function keyframes\n\nInstead of providing an Object to be used to interpolate state values, you\ncan provide a function to be called at a specific point on the timeline.\nThis function does not need to return a value, as it does not get used to\nrender the actor state.  Function keyframes are called once per animation\nloop and do not have any tweening relationship with one another.  This is\na primarily a mechanism for scheduling arbitrary code to be executed at\nspecific points in an animation.\n\n    // drift is the number of milliseconds that this function was executed\n    // after the scheduled time.  There is typically some amount of delay\n    // due to the nature of JavaScript timers.\n    actor.keyframe(1000, function (drift) {\n      console.log(this); // Logs the actor instance\n    });\n\n## Easing\n\n`opt_easing`, if provided, can be a string or an Object.  If `opt_easing`\nis a string, all animated properties will have the same easing curve\napplied to them.  For example:\n\n    actor.keyframe(1000, {\n        'x': 100,\n        'y': 100\n      }, 'easeOutSine');\n\nBoth `x` and `y` will have `easeOutSine` applied to them.  You can also\nspecify multiple easing curves with an Object:\n\n    actor.keyframe(1000, {\n        'x': 100,\n        'y': 100\n      }, {\n        'x': 'easeinSine',\n        'y': 'easeOutSine'\n      });\n\n`x` will ease with `easeInSine`, and `y` will ease with `easeOutSine`.\nAny unspecified properties will ease with `linear`.  If `opt_easing` is\nomitted, all properties will default to `linear`.",
             "itemtype": "method",
@@ -205,7 +205,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 386,
             "itemtype": "method",
             "name": "hasKeyframeAt",
@@ -228,7 +228,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 416,
             "description": "Copies all of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s from one point on the actor's\ntimeline to another. This is particularly useful for animating an actor\nback to its original position.\n\n    actor\n      .keyframe(0, {\n        x: 10,\n        y: 15\n      }).keyframe(1000, {\n        x: 50,\n        y: 75\n      });\n\n    // Return the actor to its original position\n    actor.copyKeyframe(2000, 0);\n\n__[Example](../../../../docs/examples/actor_copy_keyframe.html)__",
             "itemtype": "method",
@@ -249,7 +249,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 461,
             "description": "Moves all of the\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s from one\npoint on the actor's timeline to another.  Although this method does error\nchecking for you to make sure the operation can be safely performed, an\neffective pattern is to use `{{#crossLink\n\"Rekapi.Actor/hasKeyframeAt:method\"}}{{/crossLink}}` to see if there is\nalready a keyframe at the requested `to` destination.\n\n__[Example](../../../../docs/examples/actor_move_keyframe.html)__",
             "itemtype": "method",
@@ -273,7 +273,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 497,
             "description": "Augment the `value` or `easing` of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s at a given millisecond.  Any\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s omitted in\n`stateModification` or `opt_easing` are not modified.\n\n    actor.keyframe(0, {\n      'x': 10,\n      'y': 20\n    }).keyframe(1000, {\n      'x': 20,\n      'y': 40\n    }).keyframe(2000, {\n      'x': 30,\n      'y': 60\n    })\n\n    // Changes the state of the keyframe at millisecond 1000.\n    // Modifies the value of 'y' and the easing of 'x.'\n    actor.modifyKeyframe(1000, {\n      'y': 150\n    }, {\n      'x': 'easeFrom'\n    });\n\n__[Example](../../../../docs/examples/actor_modify_keyframe.html)__",
             "itemtype": "method",
@@ -299,7 +299,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 556,
             "description": "Remove all `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s set\non the actor at a given millisecond in the animation.\n\n__[Example](../../../../docs/examples/actor_remove_keyframe.html)__",
             "itemtype": "method",
@@ -315,7 +315,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 585,
             "description": "Remove all `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s set\non the actor.\n\n**NOTE**: This method does _not_ fire the `beforeRemoveKeyframeProperty`\nor `removeKeyframePropertyComplete` events.  This method is a bulk\noperation that is more efficient than calling `{{#crossLink\n\"Rekapi.Actor/removeKeyframeProperty:method\"}}{{/crossLink}}` many times\nindividually, but foregoes firing events.\n\n__[Example](../../../../docs/examples/actor_remove_all_keyframes.html)__",
             "itemtype": "method",
@@ -324,7 +324,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 617,
             "itemtype": "method",
             "name": "getKeyframeProperty",
@@ -347,7 +347,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 635,
             "description": "Modify a `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}` stored\non an actor.  Internally, this calls `{{#crossLink\n\"Rekapi.KeyframeProperty/modifyWith:method\"}}{{/crossLink}}` and then\nperforms some cleanup.\n\n__[Example](../../../../docs/examples/actor_modify_keyframe_property.html)__",
             "itemtype": "method",
@@ -373,7 +373,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 669,
             "description": "Remove a single `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`\nfrom the actor.",
             "itemtype": "method",
@@ -397,7 +397,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 699,
             "itemtype": "method",
             "name": "getTrackNames",
@@ -408,7 +408,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 708,
             "description": "Get all of the `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s\nfor a track.",
             "itemtype": "method",
@@ -427,7 +427,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 723,
             "itemtype": "method",
             "name": "getStart",
@@ -445,7 +445,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 766,
             "itemtype": "method",
             "name": "getEnd",
@@ -463,7 +463,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 796,
             "itemtype": "method",
             "name": "getLength",
@@ -481,7 +481,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 807,
             "description": "Extend the last state on this actor's timeline to simulate a pause.\nInternally, this method copies the final state of the actor in the\ntimeline to the millisecond defined by `until`.\n\n__[Example](../../../../docs/examples/actor_wait.html)__",
             "itemtype": "method",
@@ -497,7 +497,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 868,
             "description": "Associate a `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}` to\nthis actor.  Augments the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` to maintain a link between the\ntwo objects.  This is a lower-level method, and it is generally better to\nuse `{{#crossLink \"Rekapi.Actor/keyframe:method\"}}{{/crossLink}}`.  This\nis mostly useful for adding a `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` back to an actor after it was\n`{{#crossLink \"Rekapi.KeyframeProperty/detach\"}}{{/crossLink}}`ed.",
             "itemtype": "method",
@@ -513,7 +513,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 1049,
             "description": "__[Example](../../../../docs/examples/actor_export_timeline.html)__",
             "itemtype": "method",
@@ -525,7 +525,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.actor.js",
+            "file": "src/rekapi.actor.js",
             "line": 1073,
             "description": "Import an Object to augment this actor's state.  This does not remove\nkeyframe properties before importing new ones.",
             "itemtype": "method",
@@ -540,7 +540,7 @@
             "class": "Rekapi.Actor"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 339,
             "description": "Add an actor to the animation.  Decorates the added `actor` with a\nreference to this `Rekapi` instance as `this.rekapi`.",
             "itemtype": "method",
@@ -559,7 +559,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 378,
             "description": "Get a reference to an actor from the animation by its `id`.  You can use\n`{{#crossLink \"Rekapi/getActorIds:method\"}}{{/crossLink}}` to get a list\nof IDs for all actors in the animation.",
             "itemtype": "method",
@@ -578,7 +578,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 390,
             "description": "Retrieve the `id`'s of all actors in an animation.",
             "itemtype": "method",
@@ -590,7 +590,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 400,
             "description": "Retrieve all actors in the animation as an Object.",
             "itemtype": "method",
@@ -602,7 +602,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 409,
             "description": "Return the number of actors in the animation.",
             "itemtype": "method",
@@ -614,7 +614,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 418,
             "description": "Remove an actor from the animation.  This does not destroy the actor, it\nonly removes the link between it and the `Rekapi` instance.  This method\ncalls the actor's `teardown` method, if it is defined.",
             "itemtype": "method",
@@ -633,7 +633,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 439,
             "description": "Remove all actors from the animation.",
             "itemtype": "method",
@@ -645,7 +645,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 448,
             "description": "Play the animation.\n\n__[Example](../../../../docs/examples/play.html)__",
             "itemtype": "method",
@@ -661,7 +661,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 480,
             "description": "Move to a specific millisecond on the timeline and play from there.\n\n__[Example](../../../../docs/examples/play_from.html)__",
             "itemtype": "method",
@@ -682,7 +682,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 499,
             "description": "Play from the last frame that was rendered with {{#crossLink\n\"Rekapi/update:method\"}}{{/crossLink}}.\n\n__[Example](../../../../docs/examples/play_from_current.html)__",
             "itemtype": "method",
@@ -698,7 +698,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 513,
             "description": "Pause the animation.  A \"paused\" animation can be resumed from where it\nleft off with {{#crossLink \"Rekapi/play:method\"}}{{/crossLink}}.\n\n__[Example](../../../../docs/examples/pause.html)__",
             "itemtype": "method",
@@ -713,7 +713,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 537,
             "description": "Stop the animation.  A \"stopped\" animation will start from the beginning\nif {{#crossLink \"Rekapi/play:method\"}}{{/crossLink}} is called.\n\n__[Example](../../../../docs/examples/stop.html)__",
             "itemtype": "method",
@@ -722,7 +722,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 560,
             "itemtype": "method",
             "name": "isPlaying",
@@ -733,7 +733,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 569,
             "description": "Render an animation frame at a specific point in the timeline.\n\n__[Example](../../../../docs/examples/update.html)__",
             "itemtype": "method",
@@ -754,7 +754,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 605,
             "description": "__[Example](../../../../docs/examples/get_last_position_updated.html)__",
             "itemtype": "method",
@@ -766,7 +766,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 615,
             "itemtype": "method",
             "name": "getLastMillisecondUpdated",
@@ -777,7 +777,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 623,
             "itemtype": "method",
             "name": "getAnimationLength",
@@ -788,7 +788,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 642,
             "description": "Bind a handler function to a Rekapi event.\n\n__[Example](../../../../docs/examples/bind.html)__",
             "itemtype": "method",
@@ -809,7 +809,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 717,
             "description": "Manually fire a Rekapi event, thereby calling all bound event handlers.",
             "params": [
@@ -830,7 +830,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 730,
             "description": "Unbind one or more handlers from a Rekapi event.\n\n__[Example](../../../../docs/examples/unbind.html)__",
             "itemtype": "method",
@@ -851,7 +851,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 758,
             "description": "Export the timeline to a JSON-serializable `Object`.\n\n__[Example](../../../docs/examples/export_timeline.html)__",
             "itemtype": "method",
@@ -863,7 +863,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 792,
             "description": "Import data that was created by {{#crossLink\n\"Rekapi/exportTimeline:method\"}}{{/crossLink}}.  This sets up all actors,\nkeyframes, and custom easing curves specified in the `rekapiData`\nparameter.  These two methods collectively allow you serialize an\nanimation (for sending to a server for persistence, for example) and later\nrecreating an identical animation.",
             "itemtype": "method",
@@ -878,7 +878,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 822,
             "description": "Get a list of event names that this Rekapi instance supports.",
             "itemtype": "method",
@@ -889,7 +889,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.core.js",
+            "file": "src/rekapi.core.js",
             "line": 831,
             "description": "A list of formulas attached to `Tweenable.prototype.formula` at startup.\nThis is needed by {{#crossLink\n\"Rekapi/importTimeline:method\"}}{{/crossLink}} and {{#crossLink\n\"Rekapi/exportTimeline:method\"}}{{/crossLink}} to handle custom curves\ncreated by `Tweenable.setBezierFunction`.",
             "itemtype": "property",
@@ -899,7 +899,7 @@
             "class": "Rekapi"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 39,
             "description": "Modify this `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`.",
             "itemtype": "method",
@@ -914,7 +914,7 @@
             "class": "Rekapi.KeyframeProperty"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 60,
             "description": "Calculate the midpoint between this `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` and the next `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` in a `{{#crossLink\n\"Rekapi.Actor\"}}{{/crossLink}}`'s property track.\n\nIn just about all cases, `millisecond` should be between this\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`'s `millisecond`\nand the `millisecond` of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` that follows it in the\nanimation timeline, but it is valid to specify a value outside of this\nrange.",
             "itemtype": "method",
@@ -933,7 +933,7 @@
             "class": "Rekapi.KeyframeProperty"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 106,
             "description": "Create the reference to the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` that follows this one on a\n`{{#crossLink \"Rekapi.Actor\"}}{{/crossLink}}`'s property track.  Property\ntracks are just linked lists of `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s.",
             "itemtype": "method",
@@ -948,7 +948,7 @@
             "class": "Rekapi.KeyframeProperty"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 121,
             "description": "Disassociates this `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}` from its `{{#crossLink\n\"Rekapi.Actor\"}}{{/crossLink}}`.  This is called by various `{{#crossLink\n\"Rekapi.Actor\"}}{{/crossLink}}` methods and triggers the `{{#crossLink\n\"Rekapi/on:method\"}}removeKeyframeProperty{{/crossLink}}` event on the\nassociated `{{#crossLink \"Rekapi\"}}{{/crossLink}}` instance.",
             "itemtype": "method",
@@ -957,7 +957,7 @@
             "class": "Rekapi.KeyframeProperty"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 144,
             "description": "__[Example](../../../../docs/examples/keyprop_export_property_data.html)__",
             "itemtype": "method",
@@ -969,7 +969,7 @@
             "class": "Rekapi.KeyframeProperty"
         },
         {
-            "file": "bower_components/rekapi/src/rekapi.keyframe-property.js",
+            "file": "src/rekapi.keyframe-property.js",
             "line": 172,
             "description": "Assuming this is a function keyframe, call the function.",
             "itemtype": "method",
@@ -981,7 +981,7 @@
             "class": "Rekapi.KeyframeProperty"
         },
         {
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 192,
             "description": "Get and optionally set the height of the associated `<canvas>` element.",
             "itemtype": "method",
@@ -1000,7 +1000,7 @@
             "class": "Rekapi.CanvasRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 202,
             "description": "Get and optionally set the width of the associated `<canvas>` element.",
             "itemtype": "method",
@@ -1019,7 +1019,7 @@
             "class": "Rekapi.CanvasRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 212,
             "description": "Erase the `<canvas>`.",
             "itemtype": "method",
@@ -1031,7 +1031,7 @@
             "class": "Rekapi.CanvasRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 223,
             "description": "Move an actor around within the render order list.  Each actor is rendered\nin order of its layer (layers and actors have a 1:1 relationship).  The\nlater an actor is added to an animation (with `{{#crossLink\n\"Rekapi/addActor:method\"}}{{/crossLink}}`), the higher its layer.  Lower\nlayers (starting with 0) are rendered earlier.\n\n\nThis method has no effect if an order function is set with `{{#crossLink\n\"Rekapi.CanvasRenderer/setOrderFunction:method\"}}{{/crossLink}}`.\n\n__[Example](../../../../docs/examples/canvas_move_actor_to_layer.html)__",
             "itemtype": "method",
@@ -1055,7 +1055,7 @@
             "class": "Rekapi.CanvasRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 251,
             "description": "Set a function that defines the render order of the actors.  This is\ncalled each frame before the actors are rendered.\n\nThe following example assumes that all actors are circles that have a\n`radius` `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`.  The\ncircles will be rendered in order of the value of their `radius`, from\nsmallest to largest.  This has the effect of layering larger circles on\ntop of smaller circles, thus giving a sense of perspective.\n\nIf a render order function is specified, `{{#crossLink\n\"Rekapi.CanvasRenderer/moveActorToLayer:method\"}}{{/crossLink}}` will have\nno effect.\n\n    rekapi.renderer.setOrderFunction(function (actor) {\n      return actor.get().radius;\n    });\n__[Example](../../../../docs/examples/canvas_set_order_function.html)__",
             "itemtype": "method",
@@ -1074,7 +1074,7 @@
             "class": "Rekapi.CanvasRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/canvas/rekapi.renderer.canvas.js",
+            "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 278,
             "description": "Remove the order function set by `{{#crossLink\n\"Rekapi.CanvasRenderer/setOrderFunction:method\"}}{{/crossLink}}`.  The\nrender order defaults back to the order in which the actors were added to\nthe animation.\n\n__[Example](../../../../docs/examples/canvas_unset_order_function.html)__",
             "itemtype": "method",
@@ -1086,7 +1086,7 @@
             "class": "Rekapi.CanvasRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 410,
             "itemtype": "method",
             "name": "canAnimateWithCSS",
@@ -1097,7 +1097,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 419,
             "description": "Play the Rekapi animation as a CSS `@keyframe` animation.\n\nNote that this is different from `{{#crossLink\n\"Rekapi/play:method\"}}{{/crossLink}}`.  This method only applies to CSS\n`@keyframe` animations.",
             "itemtype": "method",
@@ -1117,7 +1117,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 453,
             "description": "Stop a CSS `@keyframe` animation.  This also removes any `<style>`\nelements that were dynamically injected into the DOM.\n\nNote that this is different from\n`{{#crossLink \"Rekapi/stop:method\"}}{{/crossLink}}`.  This method only\napplies to CSS `@keyframe` animations.",
             "itemtype": "method",
@@ -1132,7 +1132,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 488,
             "itemtype": "method",
             "name": "isPlaying",
@@ -1143,7 +1143,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 496,
             "description": "Prerender and cache the CSS animation so that it is immediately ready to\nbe used when it is needed in the future.  The function signature is\nidentical to {{#crossLink\n\"Rekapi.DOMRenderer/play:method\"}}{{/crossLink}}.  This is necessary to\nplay a CSS animation and will be automatically called for you if you don't\ncall it manually, but calling it ahead of time (such as on page load) will\nprevent any perceived lag when a CSS `@keyframe` animation is started.\nThe prerendered animation is cached for reuse until the timeline or a\nkeyframe is modified.",
             "itemtype": "method",
@@ -1167,7 +1167,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 526,
             "description": "You can decouple transform components in order to animate each property\nwith its own easing curve:\n\n    actor\n      .keyframe(0, {\n        translateX: '0px',\n        translateY: '0px',\n        rotate: '0deg'\n      })\n      .keyframe(1500, {\n        translateX: '200px',\n        translateY: '200px',\n        rotate: '90deg'\n      }, {\n        translateX: 'easeOutExpo',\n        translateY: 'easeInSine',\n        rotate: 'elastic'\n      });\n\nCSS transform string components are order-dependent, but JavaScript object\nproperties have an unpredictable order.  Rekapi must combine transform\nproperties supplied to `{{#crossLink\n\"Rekapi.Actor/keyframe:method\"}}{{/crossLink}}` (as shown above) into a\nsingle string when it renders each frame.  This method lets you change\nthat order from the default.  The supported array values for\n`orderedTransforms` are:\n\n- `translateX`\n- `translateY`\n- `translateZ`\n- `scale`\n- `scaleX`\n- `scaleY`\n- `rotate`\n- `skewX`\n- `skewY`\n\nIf you prefer a more standards-oriented approach, Rekapi also supports\ncombining the transform components yourself:\n\n    actor\n      .keyframe(0, {\n        transform: 'translateX(0px) translateY(0px) rotate(0deg)'\n      })\n      .keyframe(1500, {\n        transform: 'translateX(200px) translateY(200px) rotate(90deg)'\n      }, {\n        transform: 'easeOutExpo easeInSine elastic'\n      });\n\nThis example and the one above it are equivalent.",
             "itemtype": "method",
@@ -1191,7 +1191,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 599,
             "itemtype": "method",
             "name": "getActorClassName",
@@ -1209,7 +1209,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 613,
             "description": "Converts Rekapi animations to CSS `@keyframes`.",
             "itemtype": "method",
@@ -1228,7 +1228,7 @@
             "class": "Rekapi.DOMRenderer"
         },
         {
-            "file": "bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js",
+            "file": "renderers/dom/rekapi.renderer.dom.js",
             "line": 1301,
             "params": [
                 {
@@ -1252,7 +1252,7 @@
     "warnings": [
         {
             "message": "Missing item type",
-            "line": " bower_components/rekapi/renderers/dom/rekapi.renderer.dom.js:1301"
+            "line": " renderers/dom/rekapi.renderer.dom.js:1301"
         }
     ]
 }

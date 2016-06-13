@@ -9,6 +9,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
+  grunt.loadNpmTasks('grunt-exec');
 
   var banner = [
         '/*! <%= pkg.name %> - v<%= pkg.version %> - ',
@@ -36,16 +37,20 @@ module.exports = function(grunt) {
         url: '<%= pkg.homepage %>',
         logo: '../../demo/img/rekapi-logo-200.png',
         options: {
-          paths: ['bower_components/rekapi/src', 'bower_components/rekapi/renderers'],
+          paths: ['src', 'renderers'],
           themedir: 'yuidoc_theme',
           outdir: 'api'
         }
       }
+    },
+    exec: {
+      symlink: 'rm -rf src renderers && ln -s bower_components/rekapi/src src && ln -s bower_components/rekapi/renderers renderers'
     }
   });
 
   // Default task.
   grunt.registerTask('default', [
+    'exec:symlink',
     'yuidoc'
   ]);
 
