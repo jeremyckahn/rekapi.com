@@ -230,7 +230,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 416,
-            "description": "Copies all of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s from one point on the actor's\ntimeline to another. This is particularly useful for animating an actor\nback to its original position.\n\n    actor\n      .keyframe(0, {\n        x: 10,\n        y: 15\n      }).keyframe(1000, {\n        x: 50,\n        y: 75\n      });\n\n    // Return the actor to its original position\n    actor.copyKeyframe(2000, 0);\n\n__[Example](../../../../docs/examples/actor_copy_keyframe.html)__",
+            "description": "Copies all of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s from one point on the actor's\ntimeline to another. This is particularly useful for animating an actor\nback to its original position.\n\n    actor\n      .keyframe(0, {\n        x: 10,\n        y: 15\n      }).keyframe(1000, {\n        x: 50,\n        y: 75\n      });\n\n    // Return the actor to its original position\n    actor.copyKeyframe(2000, 0);\n\n__[Example](../../../../examples/actor_copy_keyframe.html)__",
             "itemtype": "method",
             "name": "copyKeyframe",
             "params": [
@@ -251,7 +251,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 461,
-            "description": "Moves all of the\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s from one\npoint on the actor's timeline to another.  Although this method does error\nchecking for you to make sure the operation can be safely performed, an\neffective pattern is to use `{{#crossLink\n\"Rekapi.Actor/hasKeyframeAt:method\"}}{{/crossLink}}` to see if there is\nalready a keyframe at the requested `to` destination.\n\n__[Example](../../../../docs/examples/actor_move_keyframe.html)__",
+            "description": "Moves all of the\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s from one\npoint on the actor's timeline to another.  Although this method does error\nchecking for you to make sure the operation can be safely performed, an\neffective pattern is to use `{{#crossLink\n\"Rekapi.Actor/hasKeyframeAt:method\"}}{{/crossLink}}` to see if there is\nalready a keyframe at the requested `to` destination.\n\n__[Example](../../../../examples/actor_move_keyframe.html)__",
             "itemtype": "method",
             "name": "moveKeyframe",
             "params": [
@@ -275,7 +275,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 497,
-            "description": "Augment the `value` or `easing` of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s at a given millisecond.  Any\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s omitted in\n`stateModification` or `opt_easing` are not modified.\n\n    actor.keyframe(0, {\n      'x': 10,\n      'y': 20\n    }).keyframe(1000, {\n      'x': 20,\n      'y': 40\n    }).keyframe(2000, {\n      'x': 30,\n      'y': 60\n    })\n\n    // Changes the state of the keyframe at millisecond 1000.\n    // Modifies the value of 'y' and the easing of 'x.'\n    actor.modifyKeyframe(1000, {\n      'y': 150\n    }, {\n      'x': 'easeFrom'\n    });\n\n__[Example](../../../../docs/examples/actor_modify_keyframe.html)__",
+            "description": "Augment the `value` or `easing` of the `{{#crossLink\n\"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s at a given millisecond.  Any\n`{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s omitted in\n`stateModification` or `opt_easing` are not modified.\n\n    actor.keyframe(0, {\n      'x': 10,\n      'y': 20\n    }).keyframe(1000, {\n      'x': 20,\n      'y': 40\n    }).keyframe(2000, {\n      'x': 30,\n      'y': 60\n    })\n\n    // Changes the state of the keyframe at millisecond 1000.\n    // Modifies the value of 'y' and the easing of 'x.'\n    actor.modifyKeyframe(1000, {\n      'y': 150\n    }, {\n      'x': 'easeFrom'\n    });\n\n__[Example](../../../../examples/actor_modify_keyframe.html)__",
             "itemtype": "method",
             "name": "modifyKeyframe",
             "params": [
@@ -301,7 +301,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 556,
-            "description": "Remove all `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s set\non the actor at a given millisecond in the animation.\n\n__[Example](../../../../docs/examples/actor_remove_keyframe.html)__",
+            "description": "Remove all `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s set\non the actor at a given millisecond in the animation.\n\n__[Example](../../../../examples/actor_remove_keyframe.html)__",
             "itemtype": "method",
             "name": "removeKeyframe",
             "params": [
@@ -317,7 +317,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 585,
-            "description": "Remove all `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s set\non the actor.\n\n**NOTE**: This method does _not_ fire the `beforeRemoveKeyframeProperty`\nor `removeKeyframePropertyComplete` events.  This method is a bulk\noperation that is more efficient than calling `{{#crossLink\n\"Rekapi.Actor/removeKeyframeProperty:method\"}}{{/crossLink}}` many times\nindividually, but foregoes firing events.\n\n__[Example](../../../../docs/examples/actor_remove_all_keyframes.html)__",
+            "description": "Remove all `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`s set\non the actor.\n\n**NOTE**: This method does _not_ fire the `beforeRemoveKeyframeProperty`\nor `removeKeyframePropertyComplete` events.  This method is a bulk\noperation that is more efficient than calling `{{#crossLink\n\"Rekapi.Actor/removeKeyframeProperty:method\"}}{{/crossLink}}` many times\nindividually, but foregoes firing events.\n\n__[Example](../../../../examples/actor_remove_all_keyframes.html)__",
             "itemtype": "method",
             "name": "removeAllKeyframes",
             "chainable": 1,
@@ -349,7 +349,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 635,
-            "description": "Modify a `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}` stored\non an actor.  Internally, this calls `{{#crossLink\n\"Rekapi.KeyframeProperty/modifyWith:method\"}}{{/crossLink}}` and then\nperforms some cleanup.\n\n__[Example](../../../../docs/examples/actor_modify_keyframe_property.html)__",
+            "description": "Modify a `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}` stored\non an actor.  Internally, this calls `{{#crossLink\n\"Rekapi.KeyframeProperty/modifyWith:method\"}}{{/crossLink}}` and then\nperforms some cleanup.\n\n__[Example](../../../../examples/actor_modify_keyframe_property.html)__",
             "itemtype": "method",
             "name": "modifyKeyframeProperty",
             "params": [
@@ -483,7 +483,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 807,
-            "description": "Extend the last state on this actor's timeline to simulate a pause.\nInternally, this method copies the final state of the actor in the\ntimeline to the millisecond defined by `until`.\n\n__[Example](../../../../docs/examples/actor_wait.html)__",
+            "description": "Extend the last state on this actor's timeline to simulate a pause.\nInternally, this method copies the final state of the actor in the\ntimeline to the millisecond defined by `until`.\n\n__[Example](../../../../examples/actor_wait.html)__",
             "itemtype": "method",
             "name": "wait",
             "params": [
@@ -515,7 +515,7 @@
         {
             "file": "src/rekapi.actor.js",
             "line": 1049,
-            "description": "__[Example](../../../../docs/examples/actor_export_timeline.html)__",
+            "description": "__[Example](../../../../examples/actor_export_timeline.html)__",
             "itemtype": "method",
             "name": "exportTimeline",
             "return": {
@@ -647,7 +647,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 448,
-            "description": "Play the animation.\n\n__[Example](../../../../docs/examples/play.html)__",
+            "description": "Play the animation.\n\n__[Example](../../../../examples/play.html)__",
             "itemtype": "method",
             "name": "play",
             "params": [
@@ -663,7 +663,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 480,
-            "description": "Move to a specific millisecond on the timeline and play from there.\n\n__[Example](../../../../docs/examples/play_from.html)__",
+            "description": "Move to a specific millisecond on the timeline and play from there.\n\n__[Example](../../../../examples/play_from.html)__",
             "itemtype": "method",
             "name": "playFrom",
             "params": [
@@ -684,7 +684,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 499,
-            "description": "Play from the last frame that was rendered with {{#crossLink\n\"Rekapi/update:method\"}}{{/crossLink}}.\n\n__[Example](../../../../docs/examples/play_from_current.html)__",
+            "description": "Play from the last frame that was rendered with {{#crossLink\n\"Rekapi/update:method\"}}{{/crossLink}}.\n\n__[Example](../../../../examples/play_from_current.html)__",
             "itemtype": "method",
             "name": "playFromCurrent",
             "params": [
@@ -700,7 +700,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 513,
-            "description": "Pause the animation.  A \"paused\" animation can be resumed from where it\nleft off with {{#crossLink \"Rekapi/play:method\"}}{{/crossLink}}.\n\n__[Example](../../../../docs/examples/pause.html)__",
+            "description": "Pause the animation.  A \"paused\" animation can be resumed from where it\nleft off with {{#crossLink \"Rekapi/play:method\"}}{{/crossLink}}.\n\n__[Example](../../../../examples/pause.html)__",
             "itemtype": "method",
             "name": "pause",
             "params": [
@@ -715,7 +715,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 537,
-            "description": "Stop the animation.  A \"stopped\" animation will start from the beginning\nif {{#crossLink \"Rekapi/play:method\"}}{{/crossLink}} is called.\n\n__[Example](../../../../docs/examples/stop.html)__",
+            "description": "Stop the animation.  A \"stopped\" animation will start from the beginning\nif {{#crossLink \"Rekapi/play:method\"}}{{/crossLink}} is called.\n\n__[Example](../../../../examples/stop.html)__",
             "itemtype": "method",
             "name": "stop",
             "chainable": 1,
@@ -735,7 +735,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 569,
-            "description": "Render an animation frame at a specific point in the timeline.\n\n__[Example](../../../../docs/examples/update.html)__",
+            "description": "Render an animation frame at a specific point in the timeline.\n\n__[Example](../../../../examples/update.html)__",
             "itemtype": "method",
             "name": "update",
             "params": [
@@ -756,7 +756,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 605,
-            "description": "__[Example](../../../../docs/examples/get_last_position_updated.html)__",
+            "description": "__[Example](../../../../examples/get_last_position_updated.html)__",
             "itemtype": "method",
             "name": "getLastPositionUpdated",
             "return": {
@@ -790,7 +790,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 642,
-            "description": "Bind a handler function to a Rekapi event.\n\n__[Example](../../../../docs/examples/bind.html)__",
+            "description": "Bind a handler function to a Rekapi event.\n\n__[Example](../../../../examples/bind.html)__",
             "itemtype": "method",
             "name": "on",
             "params": [
@@ -832,7 +832,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 730,
-            "description": "Unbind one or more handlers from a Rekapi event.\n\n__[Example](../../../../docs/examples/unbind.html)__",
+            "description": "Unbind one or more handlers from a Rekapi event.\n\n__[Example](../../../../examples/unbind.html)__",
             "itemtype": "method",
             "name": "off",
             "params": [
@@ -853,7 +853,7 @@
         {
             "file": "src/rekapi.core.js",
             "line": 758,
-            "description": "Export the timeline to a JSON-serializable `Object`.\n\n__[Example](../../../docs/examples/export_timeline.html)__",
+            "description": "Export the timeline to a JSON-serializable `Object`.\n\n__[Example](../../../examples/export_timeline.html)__",
             "itemtype": "method",
             "name": "exportTimeline",
             "return": {
@@ -959,7 +959,7 @@
         {
             "file": "src/rekapi.keyframe-property.js",
             "line": 144,
-            "description": "__[Example](../../../../docs/examples/keyprop_export_property_data.html)__",
+            "description": "__[Example](../../../../examples/keyprop_export_property_data.html)__",
             "itemtype": "method",
             "name": "exportPropertyData",
             "return": {
@@ -1033,7 +1033,7 @@
         {
             "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 223,
-            "description": "Move an actor around within the render order list.  Each actor is rendered\nin order of its layer (layers and actors have a 1:1 relationship).  The\nlater an actor is added to an animation (with `{{#crossLink\n\"Rekapi/addActor:method\"}}{{/crossLink}}`), the higher its layer.  Lower\nlayers (starting with 0) are rendered earlier.\n\n\nThis method has no effect if an order function is set with `{{#crossLink\n\"Rekapi.CanvasRenderer/setOrderFunction:method\"}}{{/crossLink}}`.\n\n__[Example](../../../../docs/examples/canvas_move_actor_to_layer.html)__",
+            "description": "Move an actor around within the render order list.  Each actor is rendered\nin order of its layer (layers and actors have a 1:1 relationship).  The\nlater an actor is added to an animation (with `{{#crossLink\n\"Rekapi/addActor:method\"}}{{/crossLink}}`), the higher its layer.  Lower\nlayers (starting with 0) are rendered earlier.\n\n\nThis method has no effect if an order function is set with `{{#crossLink\n\"Rekapi.CanvasRenderer/setOrderFunction:method\"}}{{/crossLink}}`.\n\n__[Example](../../../../examples/canvas_move_actor_to_layer.html)__",
             "itemtype": "method",
             "name": "moveActorToLayer",
             "params": [
@@ -1057,7 +1057,7 @@
         {
             "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 251,
-            "description": "Set a function that defines the render order of the actors.  This is\ncalled each frame before the actors are rendered.\n\nThe following example assumes that all actors are circles that have a\n`radius` `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`.  The\ncircles will be rendered in order of the value of their `radius`, from\nsmallest to largest.  This has the effect of layering larger circles on\ntop of smaller circles, thus giving a sense of perspective.\n\nIf a render order function is specified, `{{#crossLink\n\"Rekapi.CanvasRenderer/moveActorToLayer:method\"}}{{/crossLink}}` will have\nno effect.\n\n    rekapi.renderer.setOrderFunction(function (actor) {\n      return actor.get().radius;\n    });\n__[Example](../../../../docs/examples/canvas_set_order_function.html)__",
+            "description": "Set a function that defines the render order of the actors.  This is\ncalled each frame before the actors are rendered.\n\nThe following example assumes that all actors are circles that have a\n`radius` `{{#crossLink \"Rekapi.KeyframeProperty\"}}{{/crossLink}}`.  The\ncircles will be rendered in order of the value of their `radius`, from\nsmallest to largest.  This has the effect of layering larger circles on\ntop of smaller circles, thus giving a sense of perspective.\n\nIf a render order function is specified, `{{#crossLink\n\"Rekapi.CanvasRenderer/moveActorToLayer:method\"}}{{/crossLink}}` will have\nno effect.\n\n    rekapi.renderer.setOrderFunction(function (actor) {\n      return actor.get().radius;\n    });\n__[Example](../../../../examples/canvas_set_order_function.html)__",
             "itemtype": "method",
             "name": "setOrderFunction",
             "params": [
@@ -1076,7 +1076,7 @@
         {
             "file": "renderers/canvas/rekapi.renderer.canvas.js",
             "line": 278,
-            "description": "Remove the order function set by `{{#crossLink\n\"Rekapi.CanvasRenderer/setOrderFunction:method\"}}{{/crossLink}}`.  The\nrender order defaults back to the order in which the actors were added to\nthe animation.\n\n__[Example](../../../../docs/examples/canvas_unset_order_function.html)__",
+            "description": "Remove the order function set by `{{#crossLink\n\"Rekapi.CanvasRenderer/setOrderFunction:method\"}}{{/crossLink}}`.  The\nrender order defaults back to the order in which the actors were added to\nthe animation.\n\n__[Example](../../../../examples/canvas_unset_order_function.html)__",
             "itemtype": "method",
             "name": "unsetOrderFunction",
             "return": {
