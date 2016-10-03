@@ -5,7 +5,7 @@
   "author": "Jeremy Kahn <jeremyckahn@gmail.com>",
   "description": "A keyframe animation library for JavaScript",
   "dependencies": {
-    "rekapi": "~1.7.1"
+    "rekapi": "~1.7.3"
   },
   "devDependencies": {
     "requirejs": "2.1.10",

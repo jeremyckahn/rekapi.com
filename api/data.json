@@ -723,7 +723,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 560,
+            "line": 562,
             "itemtype": "method",
             "name": "isPlaying",
             "return": {
@@ -734,7 +734,29 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 569,
+            "line": 571,
+            "itemtype": "method",
+            "name": "isPaused",
+            "return": {
+                "description": "Whether or not the animation is paused (meaning not playing or\nstopped).",
+                "type": "Boolean"
+            },
+            "class": "Rekapi"
+        },
+        {
+            "file": "src/rekapi.core.js",
+            "line": 580,
+            "itemtype": "method",
+            "name": "isStopped",
+            "return": {
+                "description": "Whether or not the animation is stopped (meaning not playing or\npaused).",
+                "type": "Boolean"
+            },
+            "class": "Rekapi"
+        },
+        {
+            "file": "src/rekapi.core.js",
+            "line": 589,
             "description": "Render an animation frame at a specific point in the timeline.\n\n__[Example](../../../../examples/update.html)__",
             "itemtype": "method",
             "name": "update",
@@ -755,7 +777,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 605,
+            "line": 625,
             "description": "__[Example](../../../../examples/get_last_position_updated.html)__",
             "itemtype": "method",
             "name": "getLastPositionUpdated",
@@ -767,7 +789,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 615,
+            "line": 635,
             "itemtype": "method",
             "name": "getLastMillisecondUpdated",
             "return": {
@@ -778,7 +800,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 623,
+            "line": 643,
             "itemtype": "method",
             "name": "getAnimationLength",
             "return": {
@@ -789,7 +811,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 642,
+            "line": 662,
             "description": "Bind a handler function to a Rekapi event.\n\n__[Example](../../../../examples/bind.html)__",
             "itemtype": "method",
             "name": "on",
@@ -810,7 +832,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 717,
+            "line": 737,
             "description": "Manually fire a Rekapi event, thereby calling all bound event handlers.",
             "params": [
                 {
@@ -831,7 +853,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 730,
+            "line": 750,
             "description": "Unbind one or more handlers from a Rekapi event.\n\n__[Example](../../../../examples/unbind.html)__",
             "itemtype": "method",
             "name": "off",
@@ -852,7 +874,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 758,
+            "line": 778,
             "description": "Export the timeline to a JSON-serializable `Object`.\n\n__[Example](../../../examples/export_timeline.html)__",
             "itemtype": "method",
             "name": "exportTimeline",
@@ -864,7 +886,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 792,
+            "line": 812,
             "description": "Import data that was created by {{#crossLink\n\"Rekapi/exportTimeline:method\"}}{{/crossLink}}.  This sets up all actors,\nkeyframes, and custom easing curves specified in the `rekapiData`\nparameter.  These two methods collectively allow you serialize an\nanimation (for sending to a server for persistence, for example) and later\nrecreating an identical animation.",
             "itemtype": "method",
             "name": "importTimeline",
@@ -879,7 +901,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 822,
+            "line": 842,
             "description": "Get a list of event names that this Rekapi instance supports.",
             "itemtype": "method",
             "name": "getEventNames",
@@ -890,7 +912,7 @@
         },
         {
             "file": "src/rekapi.core.js",
-            "line": 831,
+            "line": 851,
             "description": "A list of formulas attached to `Tweenable.prototype.formula` at startup.\nThis is needed by {{#crossLink\n\"Rekapi/importTimeline:method\"}}{{/crossLink}} and {{#crossLink\n\"Rekapi/exportTimeline:method\"}}{{/crossLink}} to handle custom curves\ncreated by `Tweenable.setBezierFunction`.",
             "itemtype": "property",
             "name": "nonCustomFormulaNames",
